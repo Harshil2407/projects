@@ -1,0 +1,12 @@
+
+--- THREAT INTEL EXTRACT ---
+admin @ 203.0.113.42
+root @ 198.51.100.17
+root @ 203.0.113.99
+test @ 203.0.113.42
+
+--- THREAT INTEL EXTRACT ---
+admin @ 203.0.113.42
+root @ 198.51.100.17
+root @ 203.0.113.99
+test @ 203.0.113.42
