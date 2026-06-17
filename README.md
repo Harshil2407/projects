@@ -1,1 +1,3 @@
 # projects
+
+so this is the repo where i have put all the small projects i have made for learn python scripting for the devsecops so that i can have the hands on learning and practice for it as i can be the master and the specialist in the python scripting automation so lets build something new exciting and best for the devsecops which helps us in the next years when getting the job in the field so it is the project you can refer to learn the python scripting for all most complete it almost covers all the imp topic for the devsecops you can make the project for yourself for learning the pyhton scripting which is the imp part to learn in the devsecops so here are the some small projects that i have made in the repo.
