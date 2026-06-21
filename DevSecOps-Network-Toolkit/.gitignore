@@ -1,0 +1,6 @@
+__pycache__/
+output.json
+test.py
+new_auto.py
+venv/
+.venv/

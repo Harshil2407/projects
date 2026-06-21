@@ -1,21 +1,24 @@
-import os
-import sys
-import subprocess
-import yaml
+import psutil
 import argparse
+import yaml
 from pathlib import Path
 import logging
+import sys
 
 logging.basicConfig(   
 			 level=logging.INFO,    
-			 format="%(asctime)s - %(levelname)s - %(message)s"
-    )
+			 format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-def check_root():
-    if os.getuid() != 0:
-            logger.error("[critical] the user is not root")
-            sys.exit(1)
+
+
+def get_cpu_usage():
+    cpu_usage = psutil.cpu_percent(interval=1)
+    return cpu_usage
+
+def get_memory_usage():
+    memory_usage = psutil.virtual_memory()
+    return memory_usage.percent
 
 def load_yaml(yaml_path):
     file = Path(yaml_path)
@@ -35,62 +38,19 @@ def load_yaml(yaml_path):
            sys.exit(1)
 
 
-def check_ram_usage():
-    try:
-
-        mem = subprocess.run(
-                ["free", "-m"],
-                capture_output = True,
-                text = True
-        )
-        lines = mem.stdout.split('\n')
-        mem_data= lines[1].split()
-
-        total_ram = int(mem_data[1])
-        used_ram = int(mem_data[2])
-
-        ram_used_percentage = float((used_ram / total_ram) * 100 )
-        return ram_used_percentage
-    except Exception as e:
-            logger.error(f"[problem] {e} occured during checking ram.")
-            sys.exit(1)
 
 
-def check_cpu_usage():
-        logger.info("starting the cpu usage check")
-        try:
-            res = subprocess.run(["top", "-bn1"], 
-                                 capture_output = True, 
-                                 text = True, 
-                                 check=True)
-
-            for line in res.stdout.split('\n'):
-                if "%Cpu(s)" in line:
-                    parts = line.split(",")
-                    for part in parts:
-                        if 'id' in part:
-                            idle_cpu_str = part.replace('id', '').strip()
-                            active_cpu = 100.0 - float(idle_cpu_str)
-                            return int(active_cpu)
-        
-        except Exception as e:
-            logger.exception(f"[problem] {e} occured while cpu usage checkup.")
-            sys.exit(1)
-
-        
 def main():
     parser = argparse.ArgumentParser(description= "it is to take the input of the yaml file ")
     parser.add_argument("-y", "--yaml", default = "mod_2.yaml" , help = "you can choose any yaml file but if not then the default yaml file is the mod_2.yaml")
 
     args = parser.parse_args()
-    check_root()
-    
-    config = load_yaml(args.yaml) 
+    config = load_yaml(args.yaml)
     ram_limit = config.get("max_ram_percent",80) #used 80 as default value if not specified in the yaml
     cpu_usage_limit = config.get("max_cpu_percent" , 85) #here 85 as the default value
-
-    live_ram = check_ram_usage()
-    live_cpu_usage = check_cpu_usage()
+    
+    live_cpu_usage = get_cpu_usage()
+    live_ram = get_memory_usage()
 
     if live_ram >= ram_limit and live_cpu_usage >= cpu_usage_limit:
         logger.critical("[critical]system is in danger as cpu usage and ram uasge both have hit the limit.")
@@ -110,3 +70,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

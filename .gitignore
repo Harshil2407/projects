@@ -1,0 +1,15 @@
+# Python Core
+__pycache__/
+*.py[cod]
+
+# Virtual Environments (Blocks them anywhere in the repo)
+venv/
+.venv/
+env/
+
+# DevSecOps Output Data
+output.json
+
+# Scratchpads
+test.py
+new_auto.py
