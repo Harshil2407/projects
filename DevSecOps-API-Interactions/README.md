@@ -1,19 +1,3 @@
-
-
-### Step 1: Create the File
-
-Ensure you are in the correct directory in your terminal:
-
-```bash
-cd ~/Desktop/projects/DevSecOps-API-Interactions
-touch README.md
-
-```
-
-### Step 2: The README Content
-
-Open `README.md` in Neovim and paste this professional template. It is specifically tailored to highlight the multi-threading and API parsing skills you demonstrated in this script.
-
 # 🛡️ Multi-Threaded HTTP Security Header Analyzer
 
 ## 📖 Overview
