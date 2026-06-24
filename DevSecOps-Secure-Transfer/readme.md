@@ -1,7 +1,3 @@
-### Step 1: The Documentation
-
-Navigate to your new directory (`cd ~/Desktop/projects/DevSecOps-Secure-Transfer`) and create the `README.md` file. Here is the professional, portfolio-ready template for your exfiltration tool:
-
 # 🔐 Automated SCP Secure Backup & Exfiltration Utility
 
 ## 📖 Overview
