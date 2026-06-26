@@ -1,0 +1,141 @@
+{
+    "192.168.1.50": [
+        {
+            "method": "GET",
+            "endpoint": "/login",
+            "status_code": 200
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        },
+        {
+            "method": "GET",
+            "endpoint": "/login",
+            "status_code": 200
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 200
+        }
+    ],
+    "10.0.0.15": [
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        },
+        {
+            "method": "POST",
+            "endpoint": "/api/auth",
+            "status_code": 401
+        }
+    ],
+    "172.16.0.5": [
+        {
+            "method": "GET",
+            "endpoint": "/etc/passwd",
+            "status_code": 403
+        },
+        {
+            "method": "GET",
+            "endpoint": "/etc/passwd",
+            "status_code": 403
+        },
+        {
+            "method": "GET",
+            "endpoint": "/var/log/auth.log",
+            "status_code": 403
+        }
+    ],
+    "203.0.113.42": [
+        {
+            "method": "GET",
+            "endpoint": "/index.html",
+            "status_code": 200
+        },
+        {
+            "method": "GET",
+            "endpoint": "/index.html",
+            "status_code": 200
+        },
+        {
+            "method": "GET",
+            "endpoint": "/images/logo.png",
+            "status_code": 200
+        }
+    ],
+    "198.51.100.1": [
+        {
+            "method": "GET",
+            "endpoint": "/",
+            "status_code": 200
+        },
+        {
+            "method": "GET",
+            "endpoint": "/assets/style.css",
+            "status_code": 200
+        },
+        {
+            "method": "GET",
+            "endpoint": "/about.html",
+            "status_code": 200
+        },
+        {
+            "method": "GET",
+            "endpoint": "/contact",
+            "status_code": 200
+        }
+    ],
+    "10.10.10.99": [
+        {
+            "method": "GET",
+            "endpoint": "/../../../../etc/shadow",
+            "status_code": 400
+        },
+        {
+            "method": "GET",
+            "endpoint": "/.env",
+            "status_code": 404
+        },
+        {
+            "method": "GET",
+            "endpoint": "/config.yml",
+            "status_code": 404
+        }
+    ],
+    "8.8.8.8": [
+        {
+            "method": "GET",
+            "endpoint": "/ping",
+            "status_code": 200
+        }
+    ]
+}
